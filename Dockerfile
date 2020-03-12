@@ -1,3 +1,8 @@
 FROM hasura/graphql-engine:v1.1.0.cli-migrations
 
-COPY migrations /migrations
+ENV HASURA_GRAPHQL_MIGRATIONS_DIR=/hasura-migrations
+ENV HASURA_GRAPHQL_DATABASE_URL=
+ENV HASURA_GRAPHQL_ENABLE_CONSOLE="false"
+ENV HASURA_GRAPHQL_ADMIN_SECRET=
+
+COPY migrations ${HASURA_GRAPHQL_MIGRATIONS_DIR}
